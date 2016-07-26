@@ -30,14 +30,14 @@ hooks_directory = node['gitlab']['gitlab-rails']['gitlab_shell_hooks_path']
 
 if node['gitlab']['manage-storage-directories']['enable']
   git_data_directories.each do |_name, git_data_directory|
-    directory git_data_directory do
+    storage_directory git_data_directory do
       owner git_user
       mode "0700"
       recursive true
     end
   end
   repositories_storages.each do |_name, repositories_storage|
-    directory repositories_storage do
+    storage_directory repositories_storage do
       owner git_user
       mode "2770"
       recursive true
@@ -45,9 +45,9 @@ if node['gitlab']['manage-storage-directories']['enable']
   end
 end
 
-directory ssh_dir do
+storage_directory ssh_dir do
   owner git_user
-  group git_group
+  group 'gitlab-config'
   mode "0700"
   recursive true
 end

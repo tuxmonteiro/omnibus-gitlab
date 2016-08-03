@@ -7,6 +7,7 @@ omnibus-gitlab repository.
 
 - Upgrade krb5 lib to 1.14.2
 - Create logrotate folders and configs even when the service is disabled
+- Tidy up key names for secrets to match GitLab Rails app
 
 8.10.2
 

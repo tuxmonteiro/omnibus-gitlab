@@ -22,7 +22,7 @@ module GitlabShell
     end
 
     def parse_auth_file
-      Gitlab['user']['home'] ||=  Gitlab['node']['user']['home']
+      Gitlab['user']['home'] ||=  Gitlab['node']['gitlab']['user']['home']
       Gitlab['gitlab_shell']['auth_file'] ||=  File.join(Gitlab['user']['home'], '.ssh', 'authorized_keys')
     end
   end

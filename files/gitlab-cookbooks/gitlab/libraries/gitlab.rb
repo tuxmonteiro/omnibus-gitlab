@@ -173,6 +173,7 @@ module Gitlab
       generate_secrets(node_name)
       GitlabWorkhorse.parse_variables
       GitlabRails.parse_variables
+      GitlabShell.parse_variables
       Logging.parse_variables
       Redis.parse_variables
       Postgresql.parse_variables

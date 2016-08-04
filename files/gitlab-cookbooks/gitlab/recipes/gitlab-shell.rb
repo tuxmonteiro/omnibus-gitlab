@@ -23,8 +23,8 @@ gitlab_shell_dir = "/opt/gitlab/embedded/service/gitlab-shell"
 gitlab_shell_var_dir = "/var/opt/gitlab/gitlab-shell"
 git_data_directories = node['gitlab']['gitlab-shell']['git_data_directories']
 repositories_storages = node['gitlab']['gitlab-rails']['repositories_storages']
-ssh_dir = File.join(node['gitlab']['user']['home'], ".ssh")
-authorized_keys = File.join(ssh_dir, "authorized_keys")
+authorized_keys = node['gitlab']['gitlab-shell']['auth_file']
+ssh_dir = File.dirname(authorized_keys)
 log_directory = node['gitlab']['gitlab-shell']['log_directory']
 hooks_directory = node['gitlab']['gitlab-rails']['gitlab_shell_hooks_path']
 
@@ -45,9 +45,9 @@ if node['gitlab']['manage-storage-directories']['enable']
   end
 end
 
-storage_directory ssh_dir do
+directory ssh_dir do
   owner git_user
-  group 'gitlab-config'
+  group git_group
   mode "0700"
   recursive true
 end

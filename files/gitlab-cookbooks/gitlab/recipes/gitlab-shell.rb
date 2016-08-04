@@ -45,7 +45,7 @@ if node['gitlab']['manage-storage-directories']['enable']
   end
 end
 
-directory ssh_dir do
+storage_directory ssh_dir do
   owner git_user
   group git_group
   mode "0700"

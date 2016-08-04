@@ -38,13 +38,11 @@ define :redis_service, :redis_user => nil, :redis_group => nil, :redis => {}, :s
     owner redis_user
     group redis_group
     mode "0750"
-    action :create
   end
 
   directory redis['log_directory'] do
     owner redis_user
     mode "0700"
-    action :create
   end
 
   redis_config = File.join(redis['dir'], "redis.conf")

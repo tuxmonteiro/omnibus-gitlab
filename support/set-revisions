@@ -8,10 +8,10 @@ main() {
   if [[ "$gitlab_rails_ref" == *"-ee"* ]] ; then
     gitlab_rails_repo=git@dev.gitlab.org:gitlab/gitlab-ee.git
   else
-    gitlab_rails_repo=git@dev.gitlab.org:gitlab/gitlabhq.git
+    gitlab_rails_repo=https://gitlab.com/gitlab-org/gitlab-ce.git
   fi
-  gitlab_shell_repo=git@dev.gitlab.org:gitlab/gitlab-shell.git
-  gitlab_workhorse_repo=git@dev.gitlab.org:gitlab/gitlab-workhorse.git
+  gitlab_shell_repo=https://gitlab.com/gitlab-org/gitlab-shell.git
+  gitlab_workhorse_repo=https://gitlab.com/gitlab-org/gitlab-workhorse.git
 
   gitlab_rails_ref_id=$(check_remote_ref gitlab_rails)
   assert_non_empty gitlab_rails_ref_id

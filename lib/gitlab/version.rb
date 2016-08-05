@@ -28,12 +28,12 @@ module Gitlab
         if @read_version.include?('-ee')
           "git@dev.gitlab.org:gitlab/gitlab-ee.git"
         else
-          "git@dev.gitlab.org:gitlab/gitlabhq.git"
+          "https://gitlab.com/gitlab-org/gitlab-ce.git"
         end
       when "GITLAB_SHELL_VERSION"
-        "git@dev.gitlab.org:gitlab/gitlab-shell.git"
+        "https://gitlab.com/gitlab-org/gitlab-shell.git"
       when "GITLAB_WORKHORSE_VERSION"
-        "git@dev.gitlab.org:gitlab/gitlab-workhorse.git"
+        "https://gitlab.com/gitlab-org/gitlab-workhorse.git"
       when "GITLAB_PAGES_VERSION"
         "https://gitlab.com/gitlab-org/gitlab-pages.git"
       else
